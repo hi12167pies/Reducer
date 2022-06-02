@@ -1,0 +1,58 @@
+###################################
+# Citizens reducer by hi12167pies #
+###################################
+
+# # # # # # # # # # # # # # # # # #
+# Permissions:                    #
+#   reducer.setmap (/reducermap)  #
+#   reducer.leave (/reducer leave)#
+# # # # # # # # # # # # # # # # # #
+
+# BungeeCord mode (True / False)
+BungeeCord: false
+# If a arena is not avaible you will automaticly be sent to the fallback server
+BungeeCord_fallback:
+  enabled: true
+  server: lobby
+
+# If you are running a single server you many want to use per world gamemodes, this is helpful
+world:
+  enabled: false
+  name: "world"
+
+# Border for arena ; X = if playerX > (playerX + borderX) ;
+border:
+  x: 40
+  z: 40
+# What level should the player be sent back to map spawn
+ResetY: 85
+
+# Default npc data
+npc:
+  name: "&6YourServer.Com" # Bot name
+  skin: "hi12167pies" # Skin name
+
+# Disable fall damage?
+FallDamage: true
+
+# Default horizontal knockback the player will take (Vector.multiply(HKB))
+Default_HKB: 1.30
+# Default vertical knockback player will take (Vector(x, VKB, z))
+Default_VKB: 0.363
+# Default reach multiplier (BotReach * Reach multiplier = Bot reach)
+Default_Reach: 1.0
+# Reach the bot has from player
+BotReach: 3.5
+
+# Scoreboard for players
+scoreboard:
+  title: "&aReducer"
+  lines:
+    "8": "&1"
+    "7": "&9Blocks:"
+    "6": "&f  <blocks>"
+    "5": "&2"
+    "4": "&aArena:"
+    "3": "&f  <arena>"
+    "2": "&3"
+    "1": "&cServer&a.&eCom"
