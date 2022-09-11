@@ -1,0 +1,82 @@
+# Citizens reducer by hi12167pies
+# BungeeCord mode (True / False)
+BungeeCord: false
+bungee:
+  default_map:
+    start: "line"
+    end: ""
+# If an arena is not available you will automatically be sent to the fallback server
+# note: this is a bit glitchy and it might say "the server you connected to was down so you were sent to a fallback server"
+BungeeCord_fallback:
+  enabled: true
+  server: lobby
+
+# These commands will be executed on join and leave arena.
+commands:
+  enabled:
+    join: false
+    leave: false
+  join_arena:
+    - "/DoSomething"
+  leave_arena:
+    - "/DoSomething"
+
+# These islands will display in the gui
+islands:
+  "0":
+    name: "MLGRush"
+    # this will join all maps starting with line
+    join: "mlgrush"
+  "1":
+    name: "Line"
+    # this will join all maps starting with line
+    join: "line"
+
+# All NPCS won't hit back if not in the correct world
+world:
+  enabled: false
+  name: "world"
+
+# The distance the player can go from spawn before getting teleported back
+border:
+  x: 40
+  z: 40
+
+# The void height
+ResetY: 85
+
+# Default npc data
+npc:
+  # limit at 16 char
+  name: "&a&lReducer" # Bot name
+  skin: "hi12167pies" # Skin name
+
+# Disable fall damage?
+FallDamage: true
+
+# Default horizontal knockback the player will take
+Default_HKB: 1.30
+# Default vertical knockback player will take
+# old = 0.353
+Default_VKB: 0.365
+# Default reach multiplier
+Default_Reach: 1.0
+# Reach the bot has from player
+BotReach: 3.5
+
+# Scoreboard for players
+# Vaild placeholders: <blocks> <arena> <name> <display>
+# <display> = player's displayname
+scoreboard:
+  title: '&a&lExample.com'
+  lines:
+    '10': '&8&l&m--------------'
+    '9': '&a&lPlayer'
+    '8': '&f  <display>'
+    '7': '&2'
+    '6': '&a&lBlocks'
+    '5': '&f  <blocks>'
+    '4': '&3'
+    '3': '&a&lArena'
+    '2': '&f  <arena>'
+    '1': '&8&l&m-------------'

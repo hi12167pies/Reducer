@@ -1,0 +1,16 @@
+name: Reducer
+version: 1.2.4
+main: pies.Reducer.Main
+author: hi12167pies
+depend: [Citizens]
+commands:
+  reducer:
+    usage: /reducer <join|leave> [map|-start|-end] [value]
+    description: Open the reducer settings GUI
+    aliases:
+      - reduce
+  reducermap:
+    usage: /reducermap <create|add|remove|delete> <map name>
+    description: Create a map at your current location
+    permission: reducer.setmap
+    permission-message: You cannot run this
