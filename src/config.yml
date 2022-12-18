@@ -11,6 +11,11 @@ BungeeCord_fallback:
   enabled: true
   server: lobby
 
+# When you fall in the void it will
+# remove - remove the blocks instantly
+# fall - the blocks fall
+reset-animation: remove
+
 # These commands will be executed on join and leave arena.
 commands:
   enabled:
@@ -24,10 +29,6 @@ commands:
 # These islands will display in the gui
 islands:
   "0":
-    name: "MLGRush"
-    # this will join all maps starting with line
-    join: "mlgrush"
-  "1":
     name: "Line"
     # this will join all maps starting with line
     join: "line"
@@ -41,9 +42,6 @@ world:
 border:
   x: 40
   z: 40
-
-# The void height
-ResetY: 85
 
 # Default npc data
 npc:

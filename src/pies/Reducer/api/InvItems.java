@@ -34,19 +34,19 @@ public class InvItems {
     public static HashMap<Player, Integer> StickSlot = new HashMap<>();
 
     public static int getBlockSlot(Player player) {
-        int d = 2;
+        int defaultValue = 2;
         if (BlockSlot.containsKey(player)) {
             int value = BlockSlot.get(player);
-            return (value == -1 || value >= (MainClass.getConfig().getBoolean("BungeeCord") ? 8 : 7)) ? d : value;
+            return (value == -1 || value >= (MainClass.getConfig().getBoolean("BungeeCord") ? 8 : 7)) ? defaultValue : value;
         }
-        return d;
+        return defaultValue;
     }
     public static int getStickSlot(Player player) {
-        int d = 0;
+        int defaultValue = 0;
         if (StickSlot.containsKey(player)) {
             int value = StickSlot.get(player);
-            return (value == -1 || value >= (MainClass.getConfig().getBoolean("BungeeCord") ? 8 : 7)) ? d : value;
+            return (value == -1 || value >= (MainClass.getConfig().getBoolean("BungeeCord") ? 8 : 7)) ? defaultValue : value;
         }
-        return d;
+        return defaultValue;
     }
 }

@@ -11,6 +11,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import pies.Reducer.Config;
 import pies.Reducer.api.ScoreboardMang;
 import pies.Reducer.commands.GUI.InventorySort;
 import pies.Reducer.commands.Reducer;
@@ -27,10 +28,10 @@ public class ArenaListener implements Listener {
 
         String game = Arena.getPlayerArena(player);
 
-        Integer XBorder = MainClass.getConfig().getInt("border.x");
-        Integer ZBorder = MainClass.getConfig().getInt("border.z");
+        int XBorder = MainClass.getConfig().getInt("border.x");
+        int ZBorder = MainClass.getConfig().getInt("border.z");
 
-        if (player.getLocation().getY() < MainClass.getConfig().getInt("ResetY"))
+        if (player.getLocation().getY() < Arena.getArenaSpawn(game).getY() - 5)
             resetPlayer(player, game, "resety -y");
         else if (player.getLocation().getZ() > Arena.getArenaSpawn(game).getZ() + ZBorder)
             resetPlayer(player, game, "spawn +z");
@@ -41,10 +42,15 @@ public class ArenaListener implements Listener {
         else if (player.getLocation().getX() < Arena.getArenaSpawn(game).getX() - XBorder)
             resetPlayer(player, game, "spawn -x");
     }
+    // the reason is for when i was debugging
     public static void resetPlayer(Player player, String arena, String reason) {
         player.teleport(Arena.getArenaSpawn(arena));
         Reducer.setItems(player, player.getInventory());
-        Arena.ResetBlocksAnimate(player);
+        if (MainClass.getConfig().getString("reset-animation").equals("fall")) {
+            Arena.ResetBlocksAnimate(player);
+        } else {
+            Arena.ResetBlocks(player);
+        }
     }
     @EventHandler
     public void interaction(PlayerInteractEvent e) {

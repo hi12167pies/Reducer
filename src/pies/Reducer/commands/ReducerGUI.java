@@ -20,9 +20,13 @@ public class ReducerGUI implements Listener {
     @EventHandler
     public void Interact(InventoryClickEvent e) {
         Player player = (Player) e.getWhoClicked();
-        InventoryHolder holder = e.getInventory().getHolder();
+        if (e.getInventory().getHolder() == SETTINGS ||
+                e.getInventory().getHolder() == COSMETICS ||
+                e.getInventory().getHolder() == INVENTORY_SORT ||
+                e.getInventory().getHolder() == ISLAND) e.setCancelled(true);
+        if (e.getClickedInventory() == null) return;
+        InventoryHolder holder = e.getClickedInventory().getHolder();
         if (holder == SETTINGS || holder == COSMETICS || holder == INVENTORY_SORT || holder == ISLAND) {
-            e.setCancelled(true);
             if (e.getRawSlot() == 19) {
                 player.openInventory(Cosmetics.inv(player));
             } else if (e.getRawSlot() == 10) {

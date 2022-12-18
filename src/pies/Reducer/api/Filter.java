@@ -13,7 +13,7 @@ public class Filter {
     public static boolean checkProfanity(String text) {
         String t = text.toLowerCase(Locale.ROOT);
 
-        Boolean isProfrain = false;
+        boolean isProfrain = false;
         for (String s : w) {
             if (t.contains(s)) isProfrain = true;
             else if (t.replace("@", "a").contains(s)) isProfrain = true;

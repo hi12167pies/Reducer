@@ -11,8 +11,6 @@ import pies.Reducer.api.PlayerBot;
 import java.util.HashMap;
 
 public class Chat implements Listener {
-
-    // 0 = BotName
     public static HashMap<Player, Integer> ChatScope = new HashMap<>();
 
     @EventHandler
@@ -20,7 +18,7 @@ public class Chat implements Listener {
         Player player = e.getPlayer();
 
         if (!ChatScope.containsKey(player)) return;
-        Integer scope = ChatScope.get(player);
+        int scope = ChatScope.get(player);
 
         if (scope == 0 || scope == 1) {
             e.setCancelled(true);

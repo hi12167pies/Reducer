@@ -13,6 +13,7 @@ import org.bukkit.util.Vector;
 import pies.Reducer.Config;
 import pies.Reducer.Main;
 import pies.Reducer.api.PlayerSettings;
+import pies.Reducer.arena.Arena;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,10 +28,11 @@ public class Damage implements Listener {
 
     @EventHandler
     public void d(EntityDamageEvent e) {
-        if (e.getCause() == EntityDamageEvent.DamageCause.FALL && Config.DisableFallDamage == true) {
+        if (!(e.getEntity() instanceof Player)) return;
+        Player player = (Player) e.getEntity();
+        if (!Arena.playerInGame(player)) return;
+        if (e.getCause() == EntityDamageEvent.DamageCause.FALL && Config.DisableFallDamage)
             e.setCancelled(true);
-            return;
-        }
     }
 
     public static boolean inworld(Entity e) {

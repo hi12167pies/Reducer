@@ -38,10 +38,10 @@ public class Arena {
         Double y = loc.getY();
         Double z = loc.getZ();
         String world = loc.getWorld().getName();
-        float p = loc.getPitch(); float ya = loc.getYaw();
+        float p = loc.getPitch();
+        float ya = loc.getYaw();
         Double yaw = (double) ya;
         Double pitch = (double) p;
-
 
         arenaFile.getConfig().set("arena." + arena + ".spawn.x", x);
         arenaFile.getConfig().set("arena." + arena + ".spawn.y", y);
