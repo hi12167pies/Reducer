@@ -1,5 +1,6 @@
 package pies.Reducer.arena;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,6 +24,7 @@ public class ArenaListener implements Listener {
     @EventHandler
     public void onMove(PlayerMoveEvent e) {
         Player player = e.getPlayer();
+        if (player.getGameMode() == GameMode.CREATIVE) return;
 
         if (!Arena.playerInGame(player)) return;
 
@@ -69,8 +71,11 @@ public class ArenaListener implements Listener {
     @EventHandler
     public void onPlace(BlockPlaceEvent e) {
         Player player = e.getPlayer();
+        if (player.getGameMode() == GameMode.CREATIVE) return;
+
         if (!Arena.playerInGame(player)) return;
 
+        e.getPlayer().getItemInHand().setAmount(64);
         ScoreboardMang.ShowScoreboard(player);
 
         Arena.Block.get(player).add(e.getBlock());
@@ -84,6 +89,8 @@ public class ArenaListener implements Listener {
     @EventHandler
     public void onDrop(PlayerDropItemEvent e) {
         Player player = e.getPlayer();
+        if (player.getGameMode() == GameMode.CREATIVE) return;
+
         if (!Arena.playerInGame(player)) return;
         e.setCancelled(true);
     }
@@ -91,6 +98,8 @@ public class ArenaListener implements Listener {
     @EventHandler
     public void onBreak(BlockBreakEvent e) {
         Player player = e.getPlayer();
+        if (player.getGameMode() == GameMode.CREATIVE) return;
+
         if (!Arena.playerInGame(player)) return;
         if (!Arena.Block.get(player).contains(e.getBlock()))
             e.setCancelled(true);
