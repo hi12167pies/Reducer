@@ -8,7 +8,7 @@ import java.util.Set;
 public class Filter {
     public static Set<String> w = Sets.newHashSet(
             "nigga", "niga", "nigger", "kys", "kill your self", "porn", "retard", "faggot",
-            "fuck", "shit", "gay", "bitch", "lesbic", "lgbtq", "dick"
+            "fuck", "shit", "gay", "bitch", "dick"
     );
     public static boolean checkProfanity(String text) {
         String t = text.toLowerCase(Locale.ROOT);
